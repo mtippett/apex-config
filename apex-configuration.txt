@@ -1,0 +1,113 @@
+SUMP_COLOR   (base_Var1)
+  Fallback OFF
+  tdata 00:00:00,0,0,40,0,0,0,0,0,0,0,0,0,0
+  tdata 00:01:00,0,0,100,0,0,0,0,0,0,0,0,0,0
+  tdata 01:00:00,0,0,100,0,0,0,0,0,0,0,0,0,0
+  tdata 01:01:00,0,0,0,0,0,0,0,0,0,0,0,0,0
+  tdata 02:00:00,0,0,0,0,0,0,0,0,0,0,0,0,0
+  tdata 02:01:00,0,0,40,0,0,0,0,0,0,0,0,0,0
+
+SUMP_INTENS  (base_Var2)
+  Fallback OFF
+  tdata 00:00:00,0,0,100,0,0,0,0,0,0,0,0,0,0
+  tdata 18:00:00,0,0,100,0,0,0,0,0,0,0,0,0,0
+  tdata 18:01:00,0,0,0,0,0,0,0,0,0,0,0,0,0
+  tdata 23:59:00,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+VarSpd3_I3   (base_Var3)
+  Set PF3
+
+VarSpd4_I4   (base_Var4)
+  Set PF4
+
+TempAlarm    (base_Alarm)
+  Set ON
+
+SndWrn_I7    (base_Warn)
+  Set OFF
+
+Alarm        (base_email)
+  Set OFF
+  If SK_OF CLOSED Then ON
+  If Tmp < 77.0 Then ON
+  If Tmp > 82.0 Then ON
+  If pH < 7.80 Then ON
+  If pH > 8.30 Then ON
+  If Salt < 32.0 Then ON
+  If Salt > 36.0 Then ON
+
+Email2Alm_I9 (base_email2)
+  Set OFF
+  If pH > 8.40 Then ON
+  If pH < 7.80 Then ON
+  If ORP < 200 Then ON
+  If ORP > 450 Then ON
+  If Tmp > 82.0 Then ON
+  If Tmp < 75.0 Then ON
+  If Salt > 37.1 Then ON
+  If Salt < 32.0 Then ON
+
+UNUSED       (2_1)
+
+MainLight    (2_2)
+  Fallback ON
+  Set ON
+
+Return_Pump  (2_3)
+  Fallback ON
+  Set ON
+  If FeedA 000 Then OFF
+  If Output Feeding_10 = ON Then OFF
+  If Output Feeding_30 = ON Then OFF
+  If Output Water_Change = ON Then OFF
+
+Heater       (2_4)
+  Fallback ON
+  Set ON
+  If Tmp < 77.0 Then ON
+  If Tmp > 82.0 Then OFF
+
+Doser        (2_5)
+  Fallback ON
+  Set ON
+
+Skimmer      (2_6)
+  Fallback ON
+  Set ON
+  If FeedA 000 Then OFF
+  If Output Water_Change = ON Then OFF
+  If SK_OF CLOSED Then OFF
+  Defer 005:00 Then ON
+
+PowerHeads   (2_7)
+  Set ON
+  Fallback ON
+  If FeedA 000 Then OFF
+  If Output Feeding_10 = ON Then OFF
+  If Output Feeding_30 = ON Then OFF
+  If Output Water_Change = ON Then OFF
+
+Console      (2_8)
+  Fallback OFF
+  Set OFF
+  If Screen CLOSED Then ON
+  Min Time 015:00 Then ON
+
+LinkA_2_9    (2_9)
+  Set OFF
+
+LinkB_2_10   (2_10)
+  Set OFF
+
+Feeding_10   (Cntl_A1)
+  Set OFF
+  If 10_OFF CLOSED Then ON
+  Min Time 010:00 Then ON
+
+Feeding_30   (Cntl_A2)
+  Set OFF
+  If 30-OFF CLOSED Then ON
+  Min Time 030:00 Then ON
+
+Water_Change (Cntl_A3)
+  Set OFF
