@@ -28,6 +28,7 @@ SndWrn_I7    (base_Warn)
 
 Alarm        (base_email)
   Set OFF
+  If SUMP_L CLOSED Then ON
   If SK_OF CLOSED Then ON
   If Tmp < 77.0 Then ON
   If Tmp > 82.0 Then ON
@@ -47,7 +48,12 @@ Email2Alm_I9 (base_email2)
   If Salt > 37.1 Then ON
   If Salt < 32.0 Then ON
 
-UNUSED       (2_1)
+ATO_pump     (2_1)
+  Fallback OFF
+  Set OFF
+  If SUMP_L OPEN Then ON
+  If SUMP_H CLOSED Then OFF
+  Defer 001:00 Then ON
 
 MainLight    (2_2)
   Fallback ON
@@ -75,8 +81,11 @@ Skimmer      (2_6)
   Fallback ON
   Set ON
   If FeedA 000 Then OFF
+  If Output Feeding_10 = ON Then OFF
+  If Output Feeding_30 = ON Then OFF
   If Output Water_Change = ON Then OFF
-  If SK_OF CLOSED Then OFF
+  If Output Skimmer_Full = ON Then OFF
+  If Output Return_Pump = OFF Then OFF
   Defer 005:00 Then ON
 
 PowerHeads   (2_7)
@@ -111,3 +120,32 @@ Feeding_30   (Cntl_A2)
 
 Water_Change (Cntl_A3)
   Set OFF
+
+Skimmer_Full (Cntl_A4)
+  Set OFF
+  If SK_OF CLOSED Then ON
+  Min Time 010:00 Then ON
+
+SUMP_FULL    (Cntl_A5)
+  Set OFF
+  If Output SUMP_L_OUT = OFF Then ON
+  If Output SUMP_H_OUT = OFF Then ON
+
+SUMP_LOW     (Cntl_A6)
+  Fallback OFF
+  Set OFF
+  If Output SUMP_L_OUT = ON Then ON
+  If Output SUMP_H_OUT = OFF Then ON
+
+SUMP_L_OUT   (Cntl_A7)
+  Set OFF
+  If SUMP_L CLOSED Then ON
+
+SUMP_H_OUT   (Cntl_A8)
+  Set OFF
+  If SUMP_H CLOSED Then ON
+
+SUMP_OK      (Cntl_A9)
+  Set ON
+  If Output SUMP_L_OUT = OFF Then ON
+  If Output SUMP_H_OUT = ON Then OFF
