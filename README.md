@@ -26,4 +26,5 @@ logging in with your Apex local username/password and issuing a ```l``` command.
   }
 )
 
+![Example UML](https://yuml.me/diagram/scruffy/class/[Customer]->[Billing Address])
 
