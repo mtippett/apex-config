@@ -26,9 +26,8 @@ logging in with your Apex local username/password and issuing a ```l``` command.
   }
 )
 
-![Example UML](https://yuml.me/diagram/scruffy/class/[Customer]->[Billing Address])
 
-![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+![Alt text](https://g.gravizo.com/svg)
 <details> 
 <summary></summary>
 custom_mark10
