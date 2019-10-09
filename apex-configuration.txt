@@ -36,6 +36,10 @@ Alarm        (base_email)
   If pH > 8.30 Then ON
   If Salt < 32.0 Then ON
   If Salt > 36.0 Then ON
+  If Output PROB_RETURN = ON Then ON
+  If Output PROB_SKIMMER = ON Then ON
+  If Output PROB_POWERHD = ON Then ON
+  If Output PROB_MASTER = ON Then ON
 
 Email2Alm_I9 (base_email2)
   Set OFF
@@ -149,3 +153,28 @@ SUMP_OK      (Cntl_A9)
   Set ON
   If Output SUMP_L_OUT = OFF Then ON
   If Output SUMP_H_OUT = ON Then OFF
+
+PROB_SKIMMER (Cntl_A10)
+  Set OFF
+  If Output Skimmer Watts > 32 Then ON
+
+PROB_RETURN  (Cntl_A11)
+  Set OFF
+  If Output Return_Pump Watts > 18 Then ON
+
+PROB_MASTER  (Cntl_A12)
+  Set OFF
+  If Output PROB_RETURN = ON Then ON
+  If Output PROB_SKIMMER = ON Then ON
+  If Output PROB_POWERHD = ON Then ON
+  If Output PROB_MN_LT = ON Then ON
+
+PROB_POWERHD (Cntl_A13)
+  Set OFF
+  If Output PowerHeads Watts > 33 Then ON
+
+PROB_MN_LT   (Cntl_A14)
+  Set OFF
+  If Output MainLight Watts > 55 Then ON
+
+
