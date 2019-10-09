@@ -1,0 +1,17 @@
+digraph {
+#  SUMP_L CLOSED Then ON
+#  If SK_OF CLOSED Then ON
+#  If Tmp < 77.0 Then ON
+#  If Tmp > 82.0 Then ON
+#  If pH < 7.80 Then ON
+#  If pH > 8.30 Then ON
+#  If Salt < 32.0 Then ON
+#  If Salt > 36.0 Then ON
+  PROB_RETURN -> PROB_MASTER;
+  PROB_SKIMMER -> PROB_MASTER;
+  PROB_POWERHD -> PROB_MASTER;
+  PROB_RETURN -> ALARM;
+  PROB_SKIMMER -> ALARM;
+  PROB_POWERHD -> ALARM;
+  PROB_MASTER -> ALARM;
+}
