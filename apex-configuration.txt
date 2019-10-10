@@ -156,11 +156,11 @@ SUMP_OK      (Cntl_A9)
 
 PROB_SKIMMER (Cntl_A10)
   Set OFF
-  If Output Skimmer Watts > 32 Then ON
+  If Output Skimmer Watts > 34 Then ON
 
 PROB_RETURN  (Cntl_A11)
   Set OFF
-  If Output Return_Pump Watts > 18 Then ON
+  If Output Return_Pump Watts > 20 Then ON
 
 PROB_MASTER  (Cntl_A12)
   Set OFF
