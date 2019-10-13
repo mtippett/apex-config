@@ -35,7 +35,7 @@ Alarm        (base_email)
   If pH < 7.80 Then ON
   If pH > 8.30 Then ON
   If Salt < 32.0 Then ON
-  If Salt > 36.0 Then ON
+  If Salt > 37.0 Then ON
   If Output PROB_RETURN = ON Then ON
   If Output PROB_SKIMMER = ON Then ON
   If Output PROB_POWERHD = ON Then ON
@@ -175,6 +175,5 @@ PROB_POWERHD (Cntl_A13)
 
 PROB_MN_LT   (Cntl_A14)
   Set OFF
-  If Output MainLight Watts > 55 Then ON
-
+  If Output MainLight Watts > 60 Then ON
 
